@@ -1,4 +1,4 @@
-package com.example.barcode.server;
+package com.example.barcode.server.grpc;
 
 import com.example.barcode.server.grpc.service.DemoServiceImpl;
 import io.grpc.Server;

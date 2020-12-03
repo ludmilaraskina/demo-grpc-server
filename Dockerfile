@@ -1,3 +1,8 @@
-FROM openjdk/openjdk-11
-COPY build/libs/server.jar /server.jar
-ENTRYPOINT ["java", "-jar", "/server.jar"]
+FROM openjdk:11-jdk AS build
+COPY . /home/gradle/src
+WORKDIR /home/gradle/src
+RUN ./gradlew clean build --no-daemon
+
+FROM openjdk:11-jdk
+COPY --from=build /home/gradle/src/core/build/libs/core.jar /core.jar
+ENTRYPOINT ["java", "-jar", "/core.jar"]
