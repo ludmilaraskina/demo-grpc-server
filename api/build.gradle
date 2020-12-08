@@ -3,6 +3,8 @@ plugins {
     id "java"
 }
 
+sourceCompatibility = '1.8'
+
 protobuf {
     protoc {
         artifact = "com.google.protobuf:protoc:3.12.0"

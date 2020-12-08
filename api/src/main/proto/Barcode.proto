@@ -4,11 +4,10 @@ package com.example.barcode.api.grpc;
 
 message DemoRequest {
   string message = 1;
-  string comment = 2;
 }
 
 message DemoResponse {
-  DemoRequest request = 1;
+  string statusText = 1;
 }
 
 service DemoService {

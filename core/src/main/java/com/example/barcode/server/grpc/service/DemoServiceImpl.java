@@ -10,7 +10,7 @@ public class DemoServiceImpl extends DemoServiceGrpc.DemoServiceImplBase {
     @Override
     public void demo(DemoRequest request,
                      StreamObserver<DemoResponse> responseObserver) {
-        DemoResponse response = DemoResponse.newBuilder().setRequest(request).build();
+        DemoResponse response = DemoResponse.newBuilder().setStatusText("Server received message: " + request.getMessage()).build();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
